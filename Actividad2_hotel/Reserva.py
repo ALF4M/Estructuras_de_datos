@@ -1,0 +1,25 @@
+# -*- coding: utf-8 -*-
+
+class Reserva:
+    def __init__(self, habitacion, cliente, fecha):
+        self.id = f"{habitacion.get_id()}:{fecha}"
+        self.fecha = fecha
+        self.id_cliente = cliente.get_id()
+        self.id_habitacion = habitacion.get_id()
+    
+    def __str__(self) -> str:
+        return f"DNI: {self.id}, {self.nombre} {self.apellido}"
+    
+    def get_fecha(self):
+        return self.fecha
+    
+    def get_id(self):
+        return self.id
+
+    def get_id_cliente(self):
+        return self.id_cliente
+
+    def get_id_habitacion(self):
+        return self.id_habitacion
+    
+    
