@@ -1,6 +1,7 @@
 class HashTable:
     def __init__(self, capacidad=100):
         self.__tabla = [None] * capacidad
+        self.__capacidad = capacidad
     
 
     ###////////////////////////////###
@@ -10,7 +11,7 @@ class HashTable:
     # HASH --------------------------
     def __hash(self,key):
         A = (5 ** 0.5 - 1) / 2  #(El Golden Ratio consiste en un número irracional representado por la letra griega φ (phi) o Φ (Phi))
-        scaled_key = int(100 * (sum(ord(char) for char in key) * A % 1))
+        scaled_key = int(self.__capacidad * (sum(ord(char) for char in key) * A % 1))
         return scaled_key
 
 
