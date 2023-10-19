@@ -2,24 +2,44 @@
 
 class Reserva:
     def __init__(self, habitacion, cliente, fecha):
-        self.id = f"{habitacion.get_id()}:{fecha}"
-        self.fecha = fecha
-        self.id_cliente = cliente.get_id()
-        self.id_habitacion = habitacion.get_id()
+        self.__fecha = fecha
+        self.__id_cliente = cliente
+        self.__id_habitacion = habitacion
     
+    ###///////////////////////////###
+    ###     SETTERS Y GETTERS     ###
+    ###///////////////////////////###
+
+    # ID ----------------------------
+    @property
+    def id(self):
+        return f"{self.habitacion}:{self.fecha}"
+
+    # NUMERO HABITACION -------------
+    @property
+    def habitacion(self):
+        return self.__id_habitacion
+
+    # CLIENTE -----------------------
+    @property
+    def cliente(self):
+        return self.__id_cliente
+
+    # FECHA -------------------------
+    @property
+    def fecha(self):
+        return self.__fecha
+
+    ###////////////////////////////###
+    ###     METODOS ESPECIALES     ###
+    ###////////////////////////////###
+
+    # STRING ------------------------
     def __str__(self) -> str:
-        return f"DNI: {self.id}, {self.nombre} {self.apellido}"
-    
-    def get_fecha(self):
-        return self.fecha
-    
-    def get_id(self):
-        return self.id
-
-    def get_id_cliente(self):
-        return self.id_cliente
-
-    def get_id_habitacion(self):
-        return self.id_habitacion
+        return f'RESERVA: {self.id}, CLIENTE:{self.cliente}'
     
     
+'''
+    r = Reserva(12,'asdkj','10/04/2002',4)
+    print(r.id)
+'''
